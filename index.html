@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathfinding Visualizer++ | Interactive Algorithm Visualization</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div id="main-container">
+        <div id="canvas-container">
+            <canvas id="path-canvas"></canvas>
+        </div>
+
+        <div id="control-panel">
+            <div class="controls-wrapper">
+                <!-- Custom Algorithm Dropdown -->
+                <div id="algorithm-select" class="custom-select" tabindex="0">
+                    <div class="select-trigger">
+                        <span id="algorithm-select-value">A* Algorithm</span>
+                        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/></svg>
+                    </div>
+                    <div class="select-options">
+                        <div class="select-option selected" data-value="astar">A* Algorithm</div>
+                        <div class="select-option" data-value="dijkstra">Dijkstra's Algorithm</div>
+                        <div class="select-option" data-value="bfs">Breadth-First Search</div>
+                    </div>
+                </div>
+
+                <!-- Custom Speed Dropdown -->
+                <div id="speed-select" class="custom-select" tabindex="0">
+                    <div class="select-trigger">
+                        <span id="speed-select-value">Speed: Medium</span>
+                        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><path fill="none" stroke="#9ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5l6 6 6-6"/></svg>
+                    </div>
+                    <div class="select-options">
+                        <div class="select-option" data-value="5">Speed: Fast</div>
+                        <div class="select-option selected" data-value="20">Speed: Medium</div>
+                        <div class="select-option" data-value="50">Speed: Slow</div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <button id="run-btn" class="button-control primary">Visualize!</button>
+                <button id="pause-resume-btn" class="button-control secondary" disabled>Pause</button>
+                <button id="stop-btn" class="button-control secondary" disabled>Stop</button>
+
+                <!-- Board Manipulation Buttons -->
+                <button id="maze-btn" class="button-control secondary">Generate Maze</button>
+                <button id="clear-walls-btn" class="button-control secondary">Clear Path</button>
+                <button id="reset-board-btn" class="button-control secondary">Reset Board</button>
+                
+                <!-- Stats Display -->
+                <div class="stats-group">
+                    <div class="stat-item"><span class="stat-label">Visited:</span><span id="visited-nodes-badge" class="badge">0</span></div>
+                    <div class="stat-item"><span class="stat-label">Path:</span><span id="path-length-badge" class="badge">0</span></div>
+                    <div class="stat-item"><span class="stat-label">Time:</span><span id="time-taken-badge" class="badge">0ms</span></div>
+                </div>
+            </div>
+
+            <!-- Instruction Text -->
+            <div class="instructions">
+                Click: walls • Shift+Click: start • Ctrl+Click: end
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
